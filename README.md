@@ -1,0 +1,1 @@
+ sort a stack of integers using an auxiliary stack and a limited set of operations, aiming to minimize the number of moves. It develops skills in algorithm design, data structure manipulation, and optimization, fostering critical thinking and preparing students for more advanced programming challenges.
