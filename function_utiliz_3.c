@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 10:07:49 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/09 21:37:28 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/10 17:22:59 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,45 +25,54 @@ t_stack	*ft_lstnew(int value, int rank)
 	return (yas);
 }
 
-int ft_sqrt(int nb)
+int	ft_sqrt(int nb)
 {
-	float i = 1;
+	float	i;
 
+	i = 1;
 	if (nb < 0)
-		return 0;
-
+		return (0);
 	while (i <= nb / i)
 	{
 		if (i * i == nb)
-			return i;
+			return (i);
 		i += 0.1;
 	}
-	return i;
+	return (i);
 }
 
 void	sort_2(t_stack *s)
 {
 	ra(&s);
-	exit(1);
 }
 
-void sort_3(t_stack *s)
+void	sort_3(t_stack *s)
 {
-	t_stack *a = s;
+	t_stack	*a;
 
-	while (a)
+	a = s;
+	while (!is_sorted(a))
 	{
-		/* code */
+		if (a->value > a->next->value && a->value > a->next->next->value)
+			ra(&s);
+		else if (a->next->value > a->value
+			&& a->next->value > a->next->next->value)
+			rra(&s);
+		if (s->value > s->next->value)
+			sa(&s);
 	}
-	
- 	exit(1);
+	return ;
 }
 
-void sort_4(t_stack **a, t_stack **b)
+void	sort_4(t_stack **a, t_stack **b)
 {
-	t_stack *min = *a;
-	t_stack *temp = *a;
-	while (temp) {
+	t_stack	*min;
+	t_stack	*temp;
+
+	min = *a;
+	temp = *a;
+	while (temp)
+	{
 		if (temp->value < min->value)
 			min = temp;
 		temp = temp->next;
@@ -71,12 +80,14 @@ void sort_4(t_stack **a, t_stack **b)
 	if (min == (*a)->next->next->next)
 		rra(a);
 	else if (min == (*a)->next->next)
-		rra(a), rra(a);
+	{
+		rra(a);
+		rra(a);
+	}
 	else if (min == (*a)->next)
 		sa(a);
 	pb(a, b);
 	sort_3(*a);
-	pa(a, b);
-	exit(1);
+	pa(b, a);
+	return ;
 }
-
