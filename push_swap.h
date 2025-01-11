@@ -6,13 +6,14 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 10:08:04 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/11 11:01:02 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/11 13:48:22 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
