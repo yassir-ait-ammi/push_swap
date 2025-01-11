@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:34:48 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/10 17:40:21 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/11 10:47:42 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	push_swap(t_stack *a, t_stack *b, int len)
 			max++;
 		}
 		else
-			ra(&a);
+			find_pos(&a, len, min, max);
 	}
 	back_to_a(&b, &a, len);
 }
@@ -72,7 +72,7 @@ void	back_to_a(t_stack **b, t_stack **a, int len)
 	while (len >= 0)
 	{
 		position = 0;
-		size = help_back(b, len, position, size);
+		size = help_back(b, len, &position, size);
 		if (position <= size / 2)
 		{
 			while ((*b)->rank != len)

@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 16:11:14 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/10 17:41:56 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/11 11:00:27 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	help2_sorted(t_stack **current, int size, int *arr)
 	}
 }
 
-int	help_back(t_stack **b, int len, int position, int size)
+int	help_back(t_stack **b, int len, int *position, int size)
 {
 	t_stack	*curent;
 
@@ -69,7 +69,7 @@ int	help_back(t_stack **b, int len, int position, int size)
 		if (curent->rank == len)
 			break ;
 		curent = curent->next;
-		position++;
+		(*position)++;
 	}
 	size = 0;
 	curent = *b;
@@ -91,7 +91,7 @@ void	help_main(int ac, char **av, t_stack **stack_a)
 	current = NULL;
 	while (i < ac)
 	{
-		new_node = ft_lstnew(atoi(av[i]), 0);
+		new_node = ft_lstnew(ft_atoi(av[i]), 0);
 		if (!new_node)
 			error_exit(stack_a, NULL, NULL);
 		if (!*stack_a)
@@ -105,5 +105,31 @@ void	help_main(int ac, char **av, t_stack **stack_a)
 			current = new_node;
 		}
 		i++;
+	}
+}
+
+void	find_pos(t_stack **a, int len, int min, int max)
+{
+	t_stack	*tmp;
+	int		pos;
+
+	tmp = *a;
+	pos = 0;
+	while (tmp)
+	{
+		if (tmp->rank >= min && tmp->rank <= max)
+			break ;
+		tmp = tmp->next;
+		pos++;
+	}
+	if (pos <= len / 2)
+	{
+		while (pos-- > 0)
+			ra(a);
+	}
+	else
+	{
+		while (pos++ < len)
+			rra(a);
 	}
 }

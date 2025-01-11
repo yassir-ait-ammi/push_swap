@@ -6,17 +6,15 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 10:08:04 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/10 17:40:35 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/11 11:01:02 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <string.h>
 # include <fcntl.h>
 
 typedef struct s_stack
@@ -47,7 +45,9 @@ void		free_stack(t_stack **stack);
 void		error_exit(t_stack **a, t_stack **b, int *arr);
 void		help_sorted(int size, int *arr, t_stack **s_stack);
 void		help2_sorted(t_stack **current, int size, int *arr);
-int			help_back(t_stack **b, int len, int position, int size);
+int			help_back(t_stack **b, int len, int *position, int size);
 void		help_main(int ac, char **av, t_stack **stack_a);
+void		find_pos(t_stack **a, int len, int min, int max);
+int			ft_atoi(char *str);
 
 #endif
