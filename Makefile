@@ -1,19 +1,54 @@
+# CC = cc
+# CFLAGS = -Wall -Wextra -Werror
+# NAME = push_swap
+# SRC = function_utiliz_1.c function_utiliz_2.c function_utiliz_3.c function_utiliz_4.c push_swap.c function_utiliz_5.c
+# OBJ = ${SRC:.c=.o}
+
+# all : $(NAME)
+
+# $(NAME) : $(OBJ)
+# 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+# clean :
+# 	rm -rf $(OBJ)
+
+# fclean : clean
+# 	rm -rf $(NAME)
+# re : fclean all
+
+# .phony : re fclean clean all
+
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
-SRC = function_utiliz_1.c function_utiliz_2.c function_utiliz_3.c function_utiliz_4.c push_swap.c function_utiliz_5.c
-OBJ = ${SRC:.c=.o}
+NAME_BONUS = checker
+SRC = function_utiliz_1.c function_utiliz_2.c function_utiliz_3.c \
+		function_utiliz_4.c push_swap.c function_utiliz_5.c
+OBJ = $(SRC:.c=.o)
+B_SRC = push_swap_bonus.c function_utiliz_3_bonus.c src/function_utiliz_1_bonus.c \
+		src/get_next_line.c src/function_utiliz_2_bonus.c  src/function_utiliz_4_bonus.c \
+		src/function_utiliz_5_bonus.c src/function_utiliz_6_bonus.c
+BOB = $(B_SRC:.c=.o)
 
-all : $(NAME)
+all: $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-clean :
-	rm -rf $(OBJ)
+bonus: $(NAME_BONUS)
 
-fclean : clean
-	rm -rf $(NAME)
-re : fclean all
+$(NAME_BONUS): $(BOB)
+	$(CC) $(CFLAGS) $(BOB) -o $(NAME_BONUS)
 
-.phony : re fclean clean all
+clean:
+	rm -rf $(OBJ) $(BOB)
+
+fclean: clean
+	rm -rf $(NAME) $(NAME_BONUS)
+
+re: fclean all
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+.PHONY: all bonus clean fclean re

@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:34:48 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/11 12:10:47 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/12 18:13:51 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,7 @@ void	back_to_a(t_stack **b, t_stack **a, int len)
 
 void	handler(t_stack *a, int ac, t_stack *b)
 {
-	if (ac <= 2)
-		return ;
-	else if (ac == 3)
+	if (ac == 3)
 		sort_2(a);
 	else if (ac == 4)
 		sort_3(a);
@@ -110,9 +108,11 @@ int	main(int ac, char **av)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (ac == 2)
+	if (ac == 1)
 		return (0);
-	help_main(ac, av, &stack_a);
+	if (ac == 2)
+		return (ft_atoi(av[1]));
+	help_main_1(ac, av, &stack_a);
 	if (is_sorted(stack_a))
 	{
 		free_stack(&stack_a);
@@ -122,9 +122,7 @@ int	main(int ac, char **av)
 	if (ac <= 6)
 	{
 		handler(stack_a, ac, stack_b);
-		free_stack(&stack_a);
-		free_stack(&stack_b);
-		return (1);
+		return (free_stack(&stack_b), free_stack(&stack_a), 1);
 	}
 	sorted(stack_a, ac - 1);
 	push_swap(stack_a, stack_b, ac - 2);

@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 16:11:14 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/11 13:49:03 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/12 15:28:06 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	help_back(t_stack **b, int len, int *position, int size)
 	return (size);
 }
 
-void	help_main(int ac, char **av, t_stack **stack_a)
+void	help_main_1(int ac, char **av, t_stack **stack_a)
 {
 	int		i;
 	t_stack	*new_node;
@@ -91,7 +91,7 @@ void	help_main(int ac, char **av, t_stack **stack_a)
 	current = NULL;
 	while (i < ac)
 	{
-		new_node = ft_lstnew(atoi(av[i]), 0);
+		new_node = ft_lstnew(ft_atoi(av[i]), 0);
 		if (!new_node)
 			error_exit(stack_a, NULL, NULL);
 		if (!*stack_a)

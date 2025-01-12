@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   function_utiliz_4.c                                :+:      :+:    :+:   */
+/*   function_utiliz_4_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/10 10:30:56 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/12 18:09:58 by yaait-am         ###   ########.fr       */
+/*   Created: 2025/01/12 12:04:04 by yaait-am          #+#    #+#             */
+/*   Updated: 2025/01/12 18:23:25 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-void	rrb(t_stack **stack)
+void	rb(t_stack **stack)
+{
+	t_stack	*top;
+	t_stack	*current;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return ;
+	top = *stack;
+	current = *stack;
+	while (current->next != NULL)
+		current = current->next;
+	current->next = top;
+	*stack = top->next;
+	top->next = NULL;
+}
+
+void	rra(t_stack **stack)
 {
 	t_stack	*second_last;
 	t_stack	*last;
@@ -28,7 +44,6 @@ void	rrb(t_stack **stack)
 	}
 	second_last->next = NULL;
 	last->next = *stack;
-	write(1, "rrb\n", 4);
 	*stack = last;
 }
 
@@ -44,6 +59,7 @@ void	free_stack(t_stack **stack)
 		*stack = (*stack)->next;
 		free(tmp);
 	}
+	stack = NULL;
 }
 
 void	error_exit(t_stack **a, t_stack **b, int *arr)
@@ -56,31 +72,22 @@ void	error_exit(t_stack **a, t_stack **b, int *arr)
 	exit(1);
 }
 
-int	ft_atoi(char *str)
+int	is_double(t_stack *stack)
 {
-	int		i;
-	long	yas;
-	int		sir;
+	t_stack	*current;
+	t_stack	*checker;
 
-	i = 0;
-	sir = 1;
-	yas = 0;
-	if (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		error_exit(NULL, NULL, 0);
-	if (str[i] == '+' || str[i] == '-')
+	current = stack;
+	while (current)
 	{
-		if (str[i] == '-')
-			sir = -sir;
-		i++;
+		checker = current->next;
+		while (checker)
+		{
+			if (current->value == checker->value)
+				return (1);
+			checker = checker->next;
+		}
+		current = current->next;
 	}
-	while (str[i] != '\0' && ('0' <= str[i] && str[i] <= '9'))
-	{
-		yas = (yas * 10 + (str[i] - 48));
-		i++;
-	}
-	if (str[i] != '\0')
-		error_exit(NULL, NULL, 0);
-	if ((yas * sir) > 2147483647 || (yas * sir) < -2147483648)
-		error_exit(NULL, NULL, 0);
-	return ((int)yas * sir);
+	return (0);
 }
