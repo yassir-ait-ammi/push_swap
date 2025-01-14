@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 15:04:50 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/12 18:39:22 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/14 10:29:56 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,27 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 void	prepare(char *s, t_stack **a, t_stack **b)
 {
-	if (ft_strncmp (s, "pa\n", 3) == 0)
+	if (ft_strncmp (s, "pa\n", 4) == 0)
 		pa(a, b);
-	else if (ft_strncmp (s, "pb\n", 3) == 0)
+	else if (ft_strncmp (s, "pb\n", 4) == 0)
 		pb(a, b);
-	else if (ft_strncmp (s, "ra\n", 3) == 0)
+	else if (ft_strncmp (s, "ra\n", 4) == 0)
 		ra(a);
-	else if (ft_strncmp (s, "rb\n", 3) == 0)
+	else if (ft_strncmp (s, "rb\n", 4) == 0)
 		rb(b);
-	else if (ft_strncmp (s, "rra\n", 4) == 0)
+	else if (ft_strncmp (s, "rra\n", 5) == 0)
 		rra(a);
-	else if (ft_strncmp (s, "rrb\n", 4) == 0)
+	else if (ft_strncmp (s, "rrb\n", 5) == 0)
 		rrb(b);
-	else if (ft_strncmp (s, "sa\n", 3) == 0)
+	else if (ft_strncmp (s, "sa\n", 4) == 0)
 		sa(a);
-	else if (ft_strncmp (s, "sb\n", 3) == 0)
+	else if (ft_strncmp (s, "sb\n", 4) == 0)
 		sb(b);
-	else if (ft_strncmp (s, "rr\n", 3) == 0)
+	else if (ft_strncmp (s, "rr\n", 4) == 0)
 		rr(a, b);
-	else if (ft_strncmp (s, "rrr\n", 4) == 0)
+	else if (ft_strncmp (s, "rrr\n", 5) == 0)
 		rrr(a, b);
-	else if (ft_strncmp (s, "ss\n", 3) == 0)
+	else if (ft_strncmp (s, "ss\n", 4) == 0)
 		ss(a, b);
 	else
 		error_exit(a, b, 0);
@@ -78,6 +78,7 @@ void	help_main(int ac, char **av, t_stack **stack_a)
 	i = 1;
 	current = NULL;
 	*stack_a = NULL;
+	parsing_1(ac, av);
 	while (i < ac)
 	{
 		s = ft_split(av[i], ' ');
@@ -103,10 +104,10 @@ int	main(int ac, char **av)
 		return (1);
 	b = NULL;
 	help_main(ac, av, &a);
-	if (is_sorted(a))
-		return (free_stack(&a), 1);
 	if (is_double(a))
 		error_exit(&a, &b, 0);
+	if (is_sorted(a))
+		return (free_stack(&a), 1);
 	while (1)
 	{
 		s = get_next_line(0);

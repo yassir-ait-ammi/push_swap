@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 10:07:49 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/10 17:22:59 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/14 10:47:46 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	ft_sqrt(int nb)
 void	sort_2(t_stack *s)
 {
 	ra(&s);
+	free_stack(&s);
 }
 
 void	sort_3(t_stack *s)

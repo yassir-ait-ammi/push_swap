@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 17:43:52 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/12 18:20:59 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/14 10:24:15 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,26 @@ int	is_sorted(t_stack *a)
 		a = a->next;
 	}
 	return (1);
+}
+
+void	parsing_1(int ac, char **av)
+{
+	int	i;
+	int	j;
+	int	a;
+
+	i = 1;
+	j = 0;
+	a = 0;
+	while (i < ac)
+	{
+		j = 0;
+		if (av[i][j] == '-' || av[i][j] == '+')
+			j++;
+		if (av[i][j] == '\0')
+			a++;
+		i++;
+	}
+	if (a > 0)
+		error_exit(NULL, NULL, 0);
 }

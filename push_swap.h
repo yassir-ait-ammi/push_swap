@@ -6,14 +6,13 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 10:08:04 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/12 17:56:12 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/14 10:51:57 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
@@ -49,6 +48,7 @@ void		help2_sorted(t_stack **current, int size, int *arr);
 int			help_back(t_stack **b, int len, int *position, int size);
 void		help_main_1(int ac, char **av, t_stack **stack_a);
 void		find_pos(t_stack **a, int len, int min, int max);
-int			ft_atoi(char *str);
+int			ft_atoi(char *str, t_stack **a);
+void		parsing(int ac, char **av);
 
 #endif

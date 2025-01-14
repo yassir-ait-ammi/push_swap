@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 16:28:15 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/12 18:11:16 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/14 10:08:54 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,7 @@ int	ft_atoi_2(char *str)
 		yas = (yas * 10 + (str[i] - 48));
 		i++;
 	}
-	if (str[i] != '\0')
-		error_exit(NULL, NULL, 0);
-	if ((yas * sir) > 2147483647 || (yas * sir) < -2147483648)
+	if (str[i] != '\0' || (yas * sir) > 2147483647 || (yas * sir) < -2147483648)
 		error_exit(NULL, NULL, 0);
 	return ((int)yas * sir);
 }

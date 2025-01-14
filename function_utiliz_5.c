@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 16:11:14 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/12 15:28:06 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/14 10:53:03 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	help_main_1(int ac, char **av, t_stack **stack_a)
 	current = NULL;
 	while (i < ac)
 	{
-		new_node = ft_lstnew(ft_atoi(av[i]), 0);
+		new_node = ft_lstnew(ft_atoi(av[i], stack_a), 0);
 		if (!new_node)
 			error_exit(stack_a, NULL, NULL);
 		if (!*stack_a)

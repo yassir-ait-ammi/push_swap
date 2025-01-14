@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:34:48 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/12 18:13:51 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/14 10:52:18 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	sorted(t_stack *s_stack, int size)
 
 void	push_swap(t_stack *a, t_stack *b, int len)
 {
-	int		min;
-	int		max;
+	int	min;
+	int	max;
 
 	min = 0;
 	max = (ft_sqrt(len + 1) + ((len + 1) / 500) + 5);
@@ -92,13 +92,18 @@ void	back_to_a(t_stack **b, t_stack **a, int len)
 void	handler(t_stack *a, int ac, t_stack *b)
 {
 	if (ac == 3)
+	{
 		sort_2(a);
+		return ;
+	}
 	else if (ac == 4)
 		sort_3(a);
 	else if (ac == 5)
 		sort_4(&a, &b);
 	else if (ac == 6)
 		sort_5(&a, &b);
+	free_stack(&b);
+	free_stack(&a);
 }
 
 int	main(int ac, char **av)
@@ -110,8 +115,9 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	if (ac == 1)
 		return (0);
+	parsing(ac, av);
 	if (ac == 2)
-		return (ft_atoi(av[1]));
+		return (ft_atoi(av[1], &stack_a));
 	help_main_1(ac, av, &stack_a);
 	if (is_sorted(stack_a))
 	{
@@ -120,10 +126,7 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	if (ac <= 6)
-	{
-		handler(stack_a, ac, stack_b);
-		return (free_stack(&stack_b), free_stack(&stack_a), 1);
-	}
+		return (handler(stack_a, ac, stack_b), 1);
 	sorted(stack_a, ac - 1);
 	push_swap(stack_a, stack_b, ac - 2);
 	free_stack(&stack_b);

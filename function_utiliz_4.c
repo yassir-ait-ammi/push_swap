@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 10:30:56 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/12 18:09:58 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/14 11:01:33 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	error_exit(t_stack **a, t_stack **b, int *arr)
 	exit(1);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(char *str, t_stack **a)
 {
 	int		i;
 	long	yas;
@@ -65,8 +65,6 @@ int	ft_atoi(char *str)
 	i = 0;
 	sir = 1;
 	yas = 0;
-	if (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		error_exit(NULL, NULL, 0);
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
@@ -78,9 +76,31 @@ int	ft_atoi(char *str)
 		yas = (yas * 10 + (str[i] - 48));
 		i++;
 	}
-	if (str[i] != '\0')
-		error_exit(NULL, NULL, 0);
-	if ((yas * sir) > 2147483647 || (yas * sir) < -2147483648)
+	if (str[i] == '\0' || str[i] == '-' || str[i] == '+')
+		error_exit(a, NULL, 0);
+	if (str[i] != '\0' || (yas * sir) > 2147483647 || (yas * sir) < -2147483648)
 		error_exit(NULL, NULL, 0);
 	return ((int)yas * sir);
+}
+
+void	parsing(int ac, char **av)
+{
+	int	i;
+	int	j;
+	int	a;
+
+	i = 1;
+	j = 0;
+	a = 0;
+	while (i < ac)
+	{
+		j = 0;
+		if (av[i][j] == '-' || av[i][j] == '+')
+			j++;
+		if (av[i][j] == '\0')
+			a++;
+		i++;
+	}
+	if (a > 0)
+		error_exit(NULL, NULL, 0);
 }

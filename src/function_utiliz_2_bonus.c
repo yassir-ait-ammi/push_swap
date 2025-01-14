@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 10:25:40 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/12 18:23:12 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/13 10:41:34 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ char	**ft_split(char const *s, char c)
 	yas = ft_null(s, c);
 	if (!yas)
 		return (NULL);
+	if (s[0] == '\0')
+		error_exit(NULL, NULL, 0);
 	i = 0;
 	while (*s)
 	{
