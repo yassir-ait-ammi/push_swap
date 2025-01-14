@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 10:30:56 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/14 14:41:01 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/14 16:37:01 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	free_stack(t_stack **stack)
 
 void	error_exit(t_stack **a, t_stack **b, int *arr)
 {
-	if (arr)
+	if (arr != 0)
 		free(arr);
 	free_stack(a);
 	free_stack(b);
@@ -81,7 +81,7 @@ int	ft_atoi(char *str, t_stack **a)
 	if (str[i] == '-' || str[i] == '+')
 		error_exit(a, NULL, 0);
 	if (str[i] != '\0' || (yas * sir) > 2147483647 || (yas * sir) < -2147483648)
-		error_exit(NULL, NULL, 0);
+		error_exit(a, NULL, 0);
 	return ((int)yas * sir);
 }
 

@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 17:43:52 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/14 10:24:15 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/14 16:39:38 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	parsing_1(int ac, char **av)
 	while (i < ac)
 	{
 		j = 0;
+		if (av[i][0] == '\0')
+			error_exit(NULL, NULL, 0);
 		if (av[i][j] == '-' || av[i][j] == '+')
 			j++;
 		if (av[i][j] == '\0')
@@ -66,4 +68,30 @@ void	parsing_1(int ac, char **av)
 	}
 	if (a > 0)
 		error_exit(NULL, NULL, 0);
+}
+
+void	parsing_2(int ac, char **av)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	j = 0;
+	while (i < ac)
+	{
+		j = 0;
+		while (av[i][j])
+		{
+			while (av[i][j] == ' ' || (av[i][j] >= 9 && av[i][j] <= 13))
+				j++;
+			if (av[i][j] == '+' || av[i][j] == '-')
+				j++;
+			while (av[i][j] != '\0' && ('0' <= av[i][j] && av[i][j] <= '9'))
+				j++;
+			if ('0' >= av[i][j] || av[i][j] >= '9')
+				error_exit(NULL, NULL, 0);
+			j++;
+		}
+		i++;
+	}
 }

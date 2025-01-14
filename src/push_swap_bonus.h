@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 10:08:04 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/14 10:23:59 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/14 16:40:34 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <stdio.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 2
@@ -64,5 +65,6 @@ void		rrr(t_stack **a, t_stack **b);
 void		ss(t_stack **a, t_stack **b);
 void		help_the_help(char **s, t_stack **stack_a, t_stack **current);
 void		parsing_1(int ac, char **av);
+void		parsing_2(int ac, char **av);
 
 #endif

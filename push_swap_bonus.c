@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 15:04:50 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/14 10:29:56 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/14 16:19:08 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	help_main(int ac, char **av, t_stack **stack_a)
 	current = NULL;
 	*stack_a = NULL;
 	parsing_1(ac, av);
+	parsing_2(ac, av);
 	while (i < ac)
 	{
 		s = ft_split(av[i], ' ');
