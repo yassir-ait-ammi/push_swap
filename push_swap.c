@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:34:48 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/14 10:52:18 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:37:49 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,21 +89,27 @@ void	back_to_a(t_stack **b, t_stack **a, int len)
 	free_stack(a);
 }
 
-void	handler(t_stack *a, int ac, t_stack *b)
+void	handler(t_stack **a, int ac, t_stack **b)
 {
 	if (ac == 3)
 	{
-		sort_2(a);
+		ra(a);
 		return ;
 	}
 	else if (ac == 4)
+	{
 		sort_3(a);
+	}
 	else if (ac == 5)
-		sort_4(&a, &b);
+	{
+		sort_4(a, b);
+	}
 	else if (ac == 6)
-		sort_5(&a, &b);
-	free_stack(&b);
-	free_stack(&a);
+	{
+		sort_5(a, b);
+	}
+	free_stack(a);
+	free_stack(b);
 }
 
 int	main(int ac, char **av)
@@ -125,9 +131,9 @@ int	main(int ac, char **av)
 		free_stack(&stack_b);
 		return (1);
 	}
-	if (ac <= 6)
-		return (handler(stack_a, ac, stack_b), 1);
 	sorted(stack_a, ac - 1);
+	if (ac <= 6)
+		return (handler(&stack_a, ac, &stack_b), 1);
 	push_swap(stack_a, stack_b, ac - 2);
 	free_stack(&stack_b);
 	return (0);

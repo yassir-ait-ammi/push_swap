@@ -19,7 +19,7 @@
 # .phony : re fclean clean all
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 NAME = push_swap
 NAME_BONUS = checker
 SRC = function_utiliz_1.c function_utiliz_2.c function_utiliz_3.c \

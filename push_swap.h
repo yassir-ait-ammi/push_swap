@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 10:08:04 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/14 10:51:57 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:38:00 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -35,8 +36,7 @@ void		sa(t_stack **stack);
 void		sb(t_stack **stack);
 void		back_to_a(t_stack **b, t_stack **a, int len);
 int			ft_sqrt(int nb);
-void		sort_3(t_stack *s);
-void		sort_2(t_stack *s);
+void		sort_3(t_stack **s);
 void		sort_4(t_stack **a, t_stack **b);
 void		sort_5(t_stack **a, t_stack **b);
 void		help_sort_5(int min_index, t_stack **a, t_stack **b);
@@ -50,5 +50,6 @@ void		help_main_1(int ac, char **av, t_stack **stack_a);
 void		find_pos(t_stack **a, int len, int min, int max);
 int			ft_atoi(char *str, t_stack **a);
 void		parsing(int ac, char **av);
+void		handler(t_stack **a, int ac, t_stack **b);
 
 #endif
