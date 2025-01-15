@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:34:48 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/15 09:49:51 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/15 18:46:03 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,11 +129,11 @@ int	main(int ac, char **av)
 	{
 		free_stack(&stack_a);
 		free_stack(&stack_b);
-		return (1);
+		return (0);
 	}
 	sorted(stack_a, ac - 1);
 	if (ac <= 6)
-		return (handler(&stack_a, ac, &stack_b), 1);
+		return (handler(&stack_a, ac, &stack_b), 0);
 	push_swap(stack_a, stack_b, ac - 2);
 	free_stack(&stack_b);
 	return (0);
