@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 15:04:50 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/15 19:01:40 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/16 14:49:00 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ void	prepare(char *s, t_stack **a, t_stack **b)
 	else if (ft_strncmp (s, "ss\n", 4) == 0)
 		ss(a, b);
 	else
-		error_exit(a, b, 0);
-	free(s);
+		saver(&s, a, b);
 }
 
 t_stack	*ft_lstnew(int value, int rank)

@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 10:08:04 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/14 16:40:34 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/16 14:49:50 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdio.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 2
+#  define BUFFER_SIZE 1
 # endif
 
 typedef struct s_stack
@@ -66,5 +66,6 @@ void		ss(t_stack **a, t_stack **b);
 void		help_the_help(char **s, t_stack **stack_a, t_stack **current);
 void		parsing_1(int ac, char **av);
 void		parsing_2(int ac, char **av);
+void		saver(char **s, t_stack **a, t_stack **b);
 
 #endif

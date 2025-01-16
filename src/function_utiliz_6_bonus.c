@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 17:43:52 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/14 16:39:38 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/16 14:49:30 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,17 @@ void	parsing_2(int ac, char **av)
 				j++;
 			while (av[i][j] != '\0' && ('0' <= av[i][j] && av[i][j] <= '9'))
 				j++;
-			if ('0' >= av[i][j] || av[i][j] >= '9')
+			if (!('0' <= av[i][j] || av[i][j] <= '9'))
 				error_exit(NULL, NULL, 0);
 			j++;
 		}
 		i++;
 	}
+}
+
+void	saver(char **s, t_stack **a, t_stack **b)
+{
+	free(*s);
+	get_next_line(-2);
+	error_exit(a, b, 0);
 }
