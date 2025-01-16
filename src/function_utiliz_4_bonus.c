@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 12:04:04 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/14 16:37:49 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:01:54 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	error_exit(t_stack **a, t_stack **b, int *arr)
 		free(arr);
 	free_stack(a);
 	free_stack(b);
-	write(2, "error\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 

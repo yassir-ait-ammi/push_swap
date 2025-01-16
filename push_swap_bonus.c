@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 15:04:50 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/16 14:49:00 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:02:13 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int	main(int ac, char **av)
 	if (is_double(a))
 		error_exit(&a, &b, 0);
 	if (is_sorted(a))
-		return (free_stack(&a), 1);
+		return (free_stack(&a), 0);
 	while (1)
 	{
 		s = get_next_line(0);
