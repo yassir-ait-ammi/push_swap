@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 16:11:14 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/15 09:47:57 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/19 10:43:08 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	help_sorted(int size, int *arr, t_stack **s_stack)
 		while (j < size - i - 1)
 		{
 			if (arr[j] == arr[j + 1])
-				error_exit(s_stack, NULL, arr);
+				error_exit(s_stack, NULL, arr, NULL);
 			if (arr[j] > arr[j + 1])
 			{
 				tmp = arr[j];
@@ -91,9 +91,9 @@ void	help_main_1(int ac, char **av, t_stack **stack_a)
 	current = NULL;
 	while (i < ac)
 	{
-		new_node = ft_lstnew(ft_atoi(av[i], stack_a), 0);
+		new_node = ft_lstnew(ft_atoi(av[i], stack_a, av), 0);
 		if (!new_node)
-			error_exit(stack_a, NULL, NULL);
+			error_exit(stack_a, NULL, NULL, av);
 		if (!*stack_a)
 		{
 			*stack_a = new_node;

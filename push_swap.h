@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 10:08:04 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/14 15:59:26 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/19 11:13:04 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -42,14 +41,19 @@ void		sort_5(t_stack **a, t_stack **b);
 void		help_sort_5(int min_index, t_stack **a, t_stack **b);
 int			is_sorted(t_stack *a);
 void		free_stack(t_stack **stack);
-void		error_exit(t_stack **a, t_stack **b, int *arr);
+void		error_exit(t_stack **a, t_stack **b, int *arr, char **av);
 void		help_sorted(int size, int *arr, t_stack **s_stack);
 void		help2_sorted(t_stack **current, int size, int *arr);
 int			help_back(t_stack **b, int len, int *position, int size);
 void		help_main_1(int ac, char **av, t_stack **stack_a);
 void		find_pos(t_stack **a, int len, int min, int max);
-int			ft_atoi(char *str, t_stack **a);
+int			ft_atoi(char *str, t_stack **a, char **av);
 void		parsing(int ac, char **av);
 void		handler(t_stack **a, int ac, t_stack **b);
+void		parsing_3(int *ac, char ***av);
+char		**ft_split(char const *s, char c);
+void		free_split(char **split);
+void		parsing_4(int ac, char **av);
+char		*ft_strdup(const char *src);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 15:04:50 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/16 15:02:13 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/19 11:16:17 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int	main(int ac, char **av)
 	char	*s;
 
 	if (ac < 2)
-		return (1);
+		return (0);
 	b = NULL;
 	help_main(ac, av, &a);
 	if (is_double(a))

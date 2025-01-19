@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:30:56 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/15 09:50:58 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/19 10:44:29 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	is_sorted(t_stack *a)
 		if (a->value > a->next->value)
 			return (0);
 		if (a->value == a->next->value)
-			error_exit(&a, NULL, 0);
+			error_exit(&a, NULL, 0, NULL);
 		a = a->next;
 	}
 	return (1);

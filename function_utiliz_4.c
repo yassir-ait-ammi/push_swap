@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 10:30:56 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/16 14:59:12 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/19 10:47:59 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,18 @@ void	free_stack(t_stack **stack)
 	}
 }
 
-void	error_exit(t_stack **a, t_stack **b, int *arr)
+void	error_exit(t_stack **a, t_stack **b, int *arr, char **av)
 {
 	if (arr != 0)
 		free(arr);
 	free_stack(a);
 	free_stack(b);
+	free_split(av);
 	write(2, "Error\n", 6);
 	exit(1);
 }
 
-int	ft_atoi(char *str, t_stack **a)
+int	ft_atoi(char *str, t_stack **a, char **av)
 {
 	int		i;
 	long	yas;
@@ -72,16 +73,16 @@ int	ft_atoi(char *str, t_stack **a)
 		i++;
 	}
 	if (str[i] == '\0' || str[i] == '-' || str[i] == '+')
-		error_exit(a, NULL, 0);
+		error_exit(a, NULL, 0, av);
 	while (str[i] != '\0' && ('0' <= str[i] && str[i] <= '9'))
 	{
 		yas = (yas * 10 + (str[i] - 48));
 		i++;
 	}
 	if (str[i] == '-' || str[i] == '+')
-		error_exit(a, NULL, 0);
+		error_exit(a, NULL, 0, av);
 	if (str[i] != '\0' || (yas * sir) > 2147483647 || (yas * sir) < -2147483648)
-		error_exit(a, NULL, 0);
+		error_exit(a, NULL, 0, av);
 	return ((int)yas * sir);
 }
 
@@ -104,5 +105,5 @@ void	parsing(int ac, char **av)
 		i++;
 	}
 	if (a > 0)
-		error_exit(NULL, NULL, 0);
+		error_exit(NULL, NULL, 0, NULL);
 }

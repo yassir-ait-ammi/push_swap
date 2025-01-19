@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:34:48 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/15 18:46:03 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/19 10:53:51 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	sorted(t_stack *s_stack, int size)
 
 	arr = malloc(size * sizeof(int));
 	if (!arr)
-		error_exit(&s_stack, NULL, NULL);
+		error_exit(&s_stack, NULL, NULL, NULL);
 	current = s_stack;
 	i = 0;
 	while (current)
@@ -97,17 +97,11 @@ void	handler(t_stack **a, int ac, t_stack **b)
 		return ;
 	}
 	else if (ac == 4)
-	{
 		sort_3(a);
-	}
 	else if (ac == 5)
-	{
 		sort_4(a, b);
-	}
 	else if (ac == 6)
-	{
 		sort_5(a, b);
-	}
 	free_stack(a);
 	free_stack(b);
 }
@@ -121,10 +115,13 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	if (ac == 1)
 		return (0);
+	parsing_4(ac, av);
 	parsing(ac, av);
-	if (ac == 2)
-		return (ft_atoi(av[1], &stack_a));
+	parsing_3(&ac, &av);
 	help_main_1(ac, av, &stack_a);
+	free_split(av);
+	if (ac == 2)
+		return (0);
 	if (is_sorted(stack_a))
 	{
 		free_stack(&stack_a);
@@ -135,6 +132,5 @@ int	main(int ac, char **av)
 	if (ac <= 6)
 		return (handler(&stack_a, ac, &stack_b), 0);
 	push_swap(stack_a, stack_b, ac - 2);
-	free_stack(&stack_b);
-	return (0);
+	return (free_stack(&stack_b), 0);
 }
