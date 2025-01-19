@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 17:43:52 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/16 14:49:30 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/19 18:56:24 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	help_the_help(char **s, t_stack **stack_a, t_stack **current)
 	j = 0;
 	while (s[j] != NULL)
 	{
-		new_node = ft_lstnew(ft_atoi_2(s[j]), 0);
+		new_node = ft_lstnew(ft_atoi_2(s[j], &s, stack_a), 0);
 		if (!*stack_a)
 		{
 			*stack_a = new_node;
@@ -62,7 +62,9 @@ void	parsing_1(int ac, char **av)
 			error_exit(NULL, NULL, 0);
 		if (av[i][j] == '-' || av[i][j] == '+')
 			j++;
-		if (av[i][j] == '\0')
+		while (av[i][j] >= '0' && av[i][j] <= '9')
+			j++;
+		if (!(av[i][j] >= '0' && av[i][j] <= '9') && (av[i][j] != '\0'))
 			a++;
 		i++;
 	}

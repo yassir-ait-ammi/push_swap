@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 16:28:15 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/14 16:28:36 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/19 18:56:16 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,10 @@ void	rrb(t_stack **stack)
 	}
 	second_last->next = NULL;
 	last->next = *stack;
-	write(1, "rrb\n", 4);
 	*stack = last;
 }
 
-int	ft_atoi_2(char *str)
+int	ft_atoi_2(char *str, char ***s, t_stack **a)
 {
 	int		i;
 	long	yas;
@@ -41,8 +40,6 @@ int	ft_atoi_2(char *str)
 	i = 0;
 	sir = 1;
 	yas = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
@@ -51,11 +48,14 @@ int	ft_atoi_2(char *str)
 	}
 	while (str[i] != '\0' && ('0' <= str[i] && str[i] <= '9'))
 	{
+		if ((yas * sir) > 2147483647 || (yas * sir) < -2147483648)
+		{
+			free(*s);
+			saver(&str, a, NULL);
+		}
 		yas = (yas * 10 + (str[i] - 48));
 		i++;
 	}
-	if (str[i] != '\0' || (yas * sir) > 2147483647 || (yas * sir) < -2147483648)
-		error_exit(NULL, NULL, 0);
 	return ((int)yas * sir);
 }
 

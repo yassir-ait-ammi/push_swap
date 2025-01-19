@@ -76,12 +76,12 @@ int	ft_atoi(char *str, t_stack **a, char **av)
 		error_exit(a, NULL, 0, av);
 	while (str[i] != '\0' && ('0' <= str[i] && str[i] <= '9'))
 	{
+		if ((yas * sir) > 2147483647 || (yas * sir) < -2147483648)
+			error_exit(a, NULL, 0, av);
 		yas = (yas * 10 + (str[i] - 48));
 		i++;
 	}
-	if (str[i] == '-' || str[i] == '+')
-		error_exit(a, NULL, 0, av);
-	if (str[i] != '\0' || (yas * sir) > 2147483647 || (yas * sir) < -2147483648)
+	if (str[i] != '\0')
 		error_exit(a, NULL, 0, av);
 	return ((int)yas * sir);
 }

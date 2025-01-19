@@ -92,10 +92,7 @@ void	back_to_a(t_stack **b, t_stack **a, int len)
 void	handler(t_stack **a, int ac, t_stack **b)
 {
 	if (ac == 3)
-	{
 		ra(a);
-		return ;
-	}
 	else if (ac == 4)
 		sort_3(a);
 	else if (ac == 5)
@@ -121,7 +118,7 @@ int	main(int ac, char **av)
 	help_main_1(ac, av, &stack_a);
 	free_split(av);
 	if (ac == 2)
-		return (0);
+		return (free_stack(&stack_a), 0);
 	if (is_sorted(stack_a))
 	{
 		free_stack(&stack_a);

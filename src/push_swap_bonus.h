@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 10:08:04 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/01/16 14:49:50 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/01/19 18:56:32 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 char		**ft_split(char const *s, char c);
 void		prepare(char *s, t_stack **a, t_stack **b);
 int			is_double(t_stack *stack);
-int			ft_atoi_2(char *str);
+int			ft_atoi_2(char *str, char ***s, t_stack **a);
 void		rr(t_stack **a, t_stack **b);
 void		rrr(t_stack **a, t_stack **b);
 void		ss(t_stack **a, t_stack **b);
