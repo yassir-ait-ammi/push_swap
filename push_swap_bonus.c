@@ -78,8 +78,8 @@ void	help_main(int ac, char **av, t_stack **stack_a)
 	i = 1;
 	current = NULL;
 	*stack_a = NULL;
-	parsing_1(ac, av);
 	parsing_2(ac, av);
+	parsing_1(ac, av);
 	while (i < ac)
 	{
 		s = ft_split(av[i], ' ');
@@ -107,8 +107,6 @@ int	main(int ac, char **av)
 	help_main(ac, av, &a);
 	if (is_double(a))
 		error_exit(&a, &b, 0);
-	if (is_sorted(a))
-		return (free_stack(&a), 0);
 	while (1)
 	{
 		s = get_next_line(0);

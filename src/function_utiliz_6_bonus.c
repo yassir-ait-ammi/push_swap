@@ -66,7 +66,8 @@ void	parsing_1(int ac, char **av)
 			a++;
 		while (av[i][j] >= '0' && av[i][j] <= '9')
 			j++;
-		if (!(av[i][j] >= '0' && av[i][j] <= '9') && (av[i][j] != '\0'))
+		if (!(av[i][j] >= '0' && av[i][j] <= '9')
+		&& (av[i][j] != '\0') && av[i][j] != ' ')
 			a++;
 		i++;
 	}
@@ -92,7 +93,7 @@ void	parsing_2(int ac, char **av)
 				j++;
 			while (av[i][j] != '\0' && ('0' <= av[i][j] && av[i][j] <= '9'))
 				j++;
-			if (!('0' <= av[i][j] || av[i][j] <= '9'))
+			if (!('0' <= av[i][j] || av[i][j] <= '9') && av[i][j] != ' ')
 				error_exit(NULL, NULL, 0);
 			j++;
 		}
